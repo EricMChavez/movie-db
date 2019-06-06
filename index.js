@@ -112,6 +112,7 @@ function search() {
 								.attr({
 									src: `https://image.tmdb.org/t/p/w500/${results[x].profile_path}`,
 									title: `person#${results[x].id}`,
+									alt: `${results[x].name}`,
 									width: '100%',
 									onclick: `personPage(${results[x].id})`
 								})

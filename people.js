@@ -60,12 +60,12 @@ $('document').ready(function() {
 			console.dir(personInfo);
 			let img = $('<img />')
 				.attr({
-					src: `https://image.tmdb.org/t/p/w200/${personInfo.poster_path}`,
+					src: `https://image.tmdb.org/t/p/w200/${personInfo.profile_path}`,
 					width: 200
 				})
 				.appendTo($('#poster'));
-			$('#title').append(personInfo.title);
-			$('#sinopsis').append(personInfo.overview);
+			$('#name').append(personInfo.name);
+			$('#biography').append(personInfo.biography);
 		}
 	);
 });
