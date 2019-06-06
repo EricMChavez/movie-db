@@ -64,6 +64,8 @@ $('document').ready(function() {
 					width: 200
 				})
 				.appendTo($('#poster'));
+			$('#title').append(movieInfo.title);
+			$('#sinopsis').append(movieInfo.overview);
 		}
 	);
 });

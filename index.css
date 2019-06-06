@@ -147,3 +147,7 @@ select {
 #title {
 	font-size: 30px;
 }
+#sinopsis {
+	width: 500px;
+	margin-top: 10px;
+}
