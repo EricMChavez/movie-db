@@ -72,7 +72,7 @@ $('document').ready(function() {
 	setTop();
 });
 function moviePage(movie) {
-	window.location.href = `https://ericmchavez.github.io/movie-db/movie?q=${movie}`;
+	window.location.href = `https://ericmchavez.github.io/movie-db/movie?movieid=${movie}`;
 }
 function search() {
 	let input = $('input').val().replace(/ /g, '+');

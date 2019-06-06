@@ -52,5 +52,5 @@ $('document').ready(function() {
 	}
 	setUpcoming();
 	let urlParams = new URLSearchParams(window.location.search);
-	console.log(urlParams);
+	let movieId = urlParams.get('movieid');
 });
