@@ -1,5 +1,6 @@
 body {
 	background-image: linear-gradient(to right, rgb(125, 0, 0), rgb(125, 0, 255));
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana;
 }
 header {
 	width: 100vw;
@@ -11,11 +12,9 @@ header {
 	align-items: center;
 }
 h1 {
-	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
-		sans-serif;
 	font-size: 30px;
-	letter-spacing: 8px;
-	font-weight: lighter;
+	letter-spacing: 10px;
+	font-weight: bolder;
 }
 #carousel {
 	height: 150px;
@@ -58,6 +57,16 @@ h1 {
 	background-image: linear-gradient(rgb(10, 10, 10), rgb(30, 30, 30));
 	border-radius: 10px;
 	overflow: hidden;
+	color: grey;
+	font-size: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.top:hover {
+	position: relative;
+	left: -5px;
+	box-shadow: 5px 5px 5px black;
 }
 #content {
 	display: flex;
@@ -66,4 +75,37 @@ h1 {
 }
 #searchBar {
 	margin: 20px;
+}
+#searchInput {
+	height: 30px;
+	border: none;
+	float: left;
+	width: 300px;
+	font-size: 20px;
+}
+:focus {
+	outline: none;
+}
+#searchBtn {
+	width: 60px;
+	height: 30px;
+	margin: 0;
+	color: white;
+	padding: 0 10px;
+	background-color: rgb(0, 125, 125);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+select {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0px;
+	border: none;
+	float: left;
+	height: 30px;
+	width: 110px;
+	color: white;
+	padding: 0 10px;
+	font-size: 20px;
+	background: url('caret-down-solid.svg') no-repeat 90% 50% rgb(0, 125, 125);
 }

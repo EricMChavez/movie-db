@@ -74,3 +74,56 @@ $('document').ready(function() {
 function moviePage(movie) {
 	console.log(movie);
 }
+function search() {
+	let input = $('input').val().replace(/ /g, '+');
+	if (input != '') {
+		let top = $('.top');
+		top.each(function() {
+			this.innerHTML = '';
+		});
+		if ($('select').val() == 'movies') {
+			let results = jQuery.get(
+				`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${input}`,
+				function() {
+					results = results.responseJSON.results;
+					for (let x = 0; x < top.length; x++) {
+						let img = $('<img />')
+							.attr({
+								src: `https://image.tmdb.org/t/p/w500/${results[x].poster_path}`,
+								title: `movie#${results[x].id}`,
+								width: '100%',
+								onclick: `moviePage(${results[x].id})`
+							})
+							.appendTo(top[x]);
+					}
+				}
+			);
+		} else {
+			let results = jQuery.get(
+				`https://api.themoviedb.org/3/search/person?api_key=${key}&query=${input}`,
+				function() {
+					results = results.responseJSON.results;
+					for (let x = 0; x < top.length; x++) {
+						if (results[x]) {
+							let img = $('<img />')
+								.attr({
+									src: `https://image.tmdb.org/t/p/w500/${results[x].profile_path}`,
+									title: `person#${results[x].id}`,
+									width: '100%',
+									onclick: `personPage(${results[x].id})`
+								})
+								.appendTo(top[x]);
+						} else {
+							top[x].innerHTML = 'NO RESULT';
+						}
+					}
+				}
+			);
+		}
+	}
+}
+$(document).on('keypress', function(e) {
+	if (e.which == 13) {
+		search();
+	}
+});
