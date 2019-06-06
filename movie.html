@@ -14,29 +14,19 @@
     </head>
     <body>
         <header><h1>MOVIE HUE</h1></header>
+        <div onclick="window.location.href = 'https://ericmchavez.github.io/movie-db'" id="backBtn">BACK</div>
         <div id="content">
-            <div id="searchBar">
-                    <select>
-                        <option value="movies">Movies</option>
-                        <option value="people">People</option>
-    
-                    </select>
-                <input id="searchInput" type="text">
-                <div id="searchBtn" onclick="search()">SEARCH</div>
-            </div>
-            <div id="top10">
-                <div class="top"></div>
-                <div class="top"></div>
-                <div class="top"></div>
-                <div class="top"></div>
-                <div class="top"></div>
-                <div class="top"></div>
-                <div class="top"></div>
-                <div class="top"></div>
-                <div class="top"></div>
-                <div class="top"></div>
+            <div id="page">
+                <div id="poster"></div>
+                <div id="info">
+                    <div id="title">Title</div>
+                    <div id="sinopsis">This is a movie about things.</div>
+                    <div id="cast">Tom Hanks</div>
+                </div>
             </div>
         </div>
+
+        <div id="upTitle">UPCOMING</div>
         <div id="carousel">
             <div class='center'>
                 <div class="upcoming"></div>
