@@ -63,9 +63,15 @@ $('document').ready(function() {
 					src: `https://image.tmdb.org/t/p/w200/${movieInfo.poster_path}`,
 					width: 200
 				})
-				.appendTo($('#poster'));
+				.appendTo($('#image'));
 			$('#title').append(movieInfo.title);
 			$('#sinopsis').append('IN A WORLD WHERE... ' + movieInfo.overview);
+			let stars = movieInfo.vote_average / 10 * 132 + 25;
+			$('#rating').css({
+				background: `url('white.png') no-repeat ${stars}px 50% gold`,
+				'background-clip': 'text',
+				'-webkit-background-clip': 'text'
+			});
 		}
 	);
 });

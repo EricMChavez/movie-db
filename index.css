@@ -127,12 +127,12 @@ select {
 	padding: 10px 20px;
 	border-bottom-right-radius: 15px;
 }
-#poster {
+#image {
 	height: 300px;
 	width: 200px;
 	background-image: linear-gradient(rgb(10, 10, 10), rgb(30, 30, 30));
 	border-radius: 15px;
-	float: left;
+
 	overflow: hidden;
 }
 #page {
@@ -151,4 +151,20 @@ select {
 #biography {
 	width: 500px;
 	margin-top: 10px;
+}
+#rating {
+	margin: 10px;
+	font-size: 24px;
+	background: url('white.png') no-repeat 157px 50% gold;
+	background-size: cover;
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 800;
+}
+#poster {
+	float: left;
+	justify-content: center;
+	text-align: center;
 }
