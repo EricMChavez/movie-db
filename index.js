@@ -74,6 +74,9 @@ $('document').ready(function() {
 function moviePage(movie) {
 	window.location.href = `https://ericmchavez.github.io/movie-db/movie?movieid=${movie}`;
 }
+function personPage(person) {
+	window.location.href = `https://ericmchavez.github.io/movie-db/movie?personid=${person}`;
+}
 function search() {
 	let input = $('input').val().replace(/ /g, '+');
 	if (input != '') {

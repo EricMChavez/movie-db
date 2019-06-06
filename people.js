@@ -52,20 +52,20 @@ $('document').ready(function() {
 	}
 	setUpcoming();
 	let urlParams = new URLSearchParams(window.location.search);
-	let movieId = urlParams.get('movieid');
-	let movieInfo = jQuery.get(
-		`https://api.themoviedb.org/3/movie/${movieId}?api_key=${key}&language=en-US&page=1`,
+	let personid = urlParams.get('personid');
+	let personInfo = jQuery.get(
+		`https://api.themoviedb.org/3/person/${personid}?api_key=${key}&language=en-US&page=1`,
 		function() {
-			movieInfo = movieInfo.responseJSON;
-			console.dir(movieInfo);
+			personInfo = personInfo.responseJSON;
+			console.dir(personInfo);
 			let img = $('<img />')
 				.attr({
-					src: `https://image.tmdb.org/t/p/w200/${movieInfo.poster_path}`,
+					src: `https://image.tmdb.org/t/p/w200/${personInfo.poster_path}`,
 					width: 200
 				})
 				.appendTo($('#poster'));
-			$('#title').append(movieInfo.title);
-			$('#sinopsis').append('IN A WORLD WHERE... ' + movieInfo.overview);
+			$('#title').append(personInfo.title);
+			$('#sinopsis').append(personInfo.overview);
 		}
 	);
 });
