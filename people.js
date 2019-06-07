@@ -55,10 +55,11 @@ $('document').ready(function() {
 	let urlParams = new URLSearchParams(window.location.search);
 	let personid = urlParams.get('personid');
 	let personInfo = jQuery.get(
-		`https://api.themoviedb.org/3/person/${personid}?api_key=${key}&language=en-US&page=1`,
+		`https://api.themoviedb.org/3/person/${personid}?api_key=${key}&append_to_response=credits`,
 		function() {
-			personInfo = personInfo.responseJSON;
 			console.dir(personInfo);
+			personInfo = personInfo.responseJSON;
+
 			let img = $('<img />')
 				.attr({
 					src: `https://image.tmdb.org/t/p/w200/${personInfo.profile_path}`,
@@ -67,6 +68,19 @@ $('document').ready(function() {
 				.appendTo($('#poster'));
 			$('#name').append(personInfo.name);
 			$('#biography').append(personInfo.biography);
+			let credits = personInfo.credits.cast.sort(function(mov1, mov2) {
+				return mov2.popularity - mov1.popularity;
+			});
+
+			for (let x = 0; x < 8; x++) {
+				let credit = $('<img />').attr({
+					src: `https://image.tmdb.org/t/p/w200/${credits[x].poster_path}`,
+					width: 100,
+					class: 'creditPoster',
+					onclick: `moviePage(${credits[x].id})`
+				});
+				$('#credits').append(credit);
+			}
 		}
 	);
 });

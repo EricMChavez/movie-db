@@ -189,3 +189,11 @@ select {
 	width: 150px !important;
 	margin: 0 57px !important;
 }
+#credits {
+	position: absolute;
+	top: 400px;
+}
+.creditPoster {
+	margin-right: 10px;
+	border-radius: 10px;
+}
