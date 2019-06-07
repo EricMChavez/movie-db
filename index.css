@@ -31,6 +31,7 @@ h1 {
 	width: 100vw;
 	letter-spacing: 7px;
 	font-weight: bolder;
+	z-index: 99;
 }
 .upcoming img {
 	position: relative !important;
@@ -163,4 +164,28 @@ select {
 	float: left;
 	justify-content: center;
 	text-align: center;
+}
+#carouselCast {
+	height: 350px;
+	width: 100vw;
+	overflow: visible;
+}
+#carouselCast .slick-track {
+	height: 300px !important;
+}
+.upCast .slick-prev {
+	display: none !important;
+}
+.upCast .slick-next {
+	display: none !important;
+}
+.cast {
+	background-color: black;
+	border-radius: 15px;
+	overflow: hidden;
+	position: relative !important;
+	top: 70px !important;
+	height: 440px !important;
+	width: 150px !important;
+	margin: 0 57px !important;
 }

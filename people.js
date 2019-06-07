@@ -25,6 +25,7 @@ $('document').ready(function() {
 					centerPadding: '60px',
 					slidesToShow: 5,
 					autoplay: true,
+					pauseOnHover: false,
 					autoplaySpeed: 2000,
 					responsive: [
 						{

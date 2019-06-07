@@ -3,52 +3,95 @@ let key = 'b2897fea4763cb2036510a79230ce9a1';
 $('document').ready(function() {
 	let upcoming = $('.upcoming');
 	let top = $('.top');
+	let cast = $('.cast');
 	function setUpcoming() {
-		let results = jQuery.get(
-			`https://api.themoviedb.org/3/movie/upcoming?api_key=${key}&language=en-US&page=1`,
-			function() {
-				results = results.responseJSON.results;
+		let results = jQuery.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${key}`, function() {
+			console.dir(results);
+			results = results.responseJSON.results;
 
-				for (let x = 0; x < upcoming.length; x++) {
-					let img = $('<img />')
-						.attr({
-							src: `https://image.tmdb.org/t/p/w500/${results[x].backdrop_path}`,
-							title: `movie#${results[x].id}`,
-							width: 250,
-							onclick: `moviePage(${results[x].id})`
-						})
-						.appendTo(upcoming[x]);
-				}
-
-				$('.center').slick({
-					centerMode: true,
-					centerPadding: '60px',
-					slidesToShow: 5,
-					autoplay: true,
-					autoplaySpeed: 2000,
-					responsive: [
-						{
-							breakpoint: 1300,
-							settings: {
-								arrows: false,
+			for (let x = 0; x < upcoming.length; x++) {
+				let img = $('<img />')
+					.attr({
+						src: `https://image.tmdb.org/t/p/w500/${results[x].backdrop_path}`,
+						title: `movie#${results[x].id}`,
+						width: 250,
+						onclick: `moviePage(${results[x].id})`
+					})
+					.appendTo(upcoming[x]);
+				let actor = jQuery.get(
+					`https://api.themoviedb.org/3/movie/${results[x].id}/credits?api_key=${key}`,
+					function() {
+						actor = actor.responseJSON.cast[0];
+						let castImg = $('<img />')
+							.attr({
+								src: `https://image.tmdb.org/t/p/w500/${actor.profile_path}`,
+								title: `person#${actor.id}`,
+								width: 150,
+								onclick: `personPage(${actor.id})`
+							})
+							.appendTo(cast[x]);
+						if (x == 9) {
+							$('.upCast').slick({
 								centerMode: true,
-								centerPadding: '40px',
-								slidesToShow: 4
-							}
-						},
-						{
-							breakpoint: 1000,
-							settings: {
-								arrows: false,
+								centerPadding: '60px',
+								slidesToShow: 5,
+								autoplay: true,
+								pauseOnHover: false,
+								autoplaySpeed: 2000,
+								responsive: [
+									{
+										breakpoint: 1300,
+										settings: {
+											arrows: false,
+											centerMode: true,
+											centerPadding: '40px',
+											slidesToShow: 4
+										}
+									},
+									{
+										breakpoint: 1000,
+										settings: {
+											arrows: false,
+											centerMode: true,
+											centerPadding: '40px',
+											slidesToShow: 3
+										}
+									}
+								]
+							});
+							$('.center').slick({
 								centerMode: true,
-								centerPadding: '40px',
-								slidesToShow: 3
-							}
+								centerPadding: '60px',
+								slidesToShow: 5,
+								autoplay: true,
+								pauseOnHover: false,
+								autoplaySpeed: 2000,
+								responsive: [
+									{
+										breakpoint: 1300,
+										settings: {
+											arrows: false,
+											centerMode: true,
+											centerPadding: '40px',
+											slidesToShow: 4
+										}
+									},
+									{
+										breakpoint: 1000,
+										settings: {
+											arrows: false,
+											centerMode: true,
+											centerPadding: '40px',
+											slidesToShow: 3
+										}
+									}
+								]
+							});
 						}
-					]
-				});
+					}
+				);
 			}
-		);
+		});
 	}
 	setUpcoming();
 	function setTop() {
