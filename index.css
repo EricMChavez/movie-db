@@ -165,6 +165,7 @@ select {
 	font-weight: 800;
 }
 #poster {
+	border-radius: 15px;
 	float: left;
 	justify-content: center;
 	text-align: center;
