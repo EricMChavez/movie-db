@@ -55,7 +55,7 @@ $('document').ready(function() {
 	let urlParams = new URLSearchParams(window.location.search);
 	let movieId = urlParams.get('movieid');
 	let movieInfo = jQuery.get(
-		`https://api.themoviedb.org/3/movie/${movieId}?api_key=${key}&language=en-US&page=1`,
+		`https://api.themoviedb.org/3/movie/${movieId}?api_key=${key}&append_to_response=credits`,
 		function() {
 			movieInfo = movieInfo.responseJSON;
 			console.dir(movieInfo);
@@ -73,6 +73,19 @@ $('document').ready(function() {
 				'background-clip': 'text',
 				'-webkit-background-clip': 'text'
 			});
+			let credits = movieInfo.credits.cast.sort(function(mov1, mov2) {
+				return mov2.popularity - mov1.popularity;
+			});
+
+			for (let x = 0; x < 8; x++) {
+				let credit = $('<img />').attr({
+					src: `https://image.tmdb.org/t/p/w200/${credits[x].profile_path}`,
+					width: 100,
+					class: 'creditPoster',
+					onclick: `personPage(${credits[x].id})`
+				});
+				$('#credits').append(credit);
+			}
 		}
 	);
 });
