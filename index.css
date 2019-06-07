@@ -150,8 +150,12 @@ select {
 }
 #sinopsis,
 #biography {
-	width: 500px;
+	padding: 10px;
 	margin-top: 10px;
+	height: 220px;
+	overflow-y: scroll;
+	background-color: rgba(10, 10, 10, .3);
+	width: 630px;
 }
 #rating {
 	margin: 10px;
