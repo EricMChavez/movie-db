@@ -76,3 +76,9 @@ $('document').ready(function() {
 		}
 	);
 });
+function moviePage(movie) {
+	window.location.href = `https://ericmchavez.github.io/movie-db/movie?movieid=${movie}`;
+}
+function personPage(person) {
+	window.location.href = `https://ericmchavez.github.io/movie-db/people?personid=${person}`;
+}
