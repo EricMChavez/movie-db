@@ -73,7 +73,7 @@ $('document').ready(function() {
 			});
 
 			for (let x = 0; x < 8; x++) {
-				if (credits[x].poster_path != '') {
+				if (credits[x].poster_path != null) {
 					let credit = $('<img />').attr({
 						src: `https://image.tmdb.org/t/p/w200/${credits[x].poster_path}`,
 						width: 100,
