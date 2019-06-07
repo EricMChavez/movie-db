@@ -78,13 +78,15 @@ $('document').ready(function() {
 			});
 
 			for (let x = 0; x < 8; x++) {
-				let credit = $('<img />').attr({
-					src: `https://image.tmdb.org/t/p/w200/${credits[x].profile_path}`,
-					width: 100,
-					class: 'creditPoster',
-					onclick: `personPage(${credits[x].id})`
-				});
-				$('#credits').append(credit);
+				if (credits[x]) {
+					let credit = $('<img />').attr({
+						src: `https://image.tmdb.org/t/p/w200/${credits[x].profile_path}`,
+						width: 100,
+						class: 'creditPoster',
+						onclick: `personPage(${credits[x].id})`
+					});
+					$('#credits').append(credit);
+				}
 			}
 		}
 	);
