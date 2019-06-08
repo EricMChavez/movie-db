@@ -55,7 +55,7 @@ $('document').ready(function() {
 	let urlParams = new URLSearchParams(window.location.search);
 	let movieId = urlParams.get('movieid');
 	let movieInfo = jQuery.get(
-		`https://api.themoviedb.org/3/movie/${movieId}?api_key=${key}&append_to_response=credits`,
+		`https://api.themoviedb.org/3/movie/${movieId}?api_key=${key}&append_to_response=credits,images,videos`,
 		function() {
 			movieInfo = movieInfo.responseJSON;
 			console.dir(movieInfo);

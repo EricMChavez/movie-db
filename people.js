@@ -55,7 +55,7 @@ $('document').ready(function() {
 	let urlParams = new URLSearchParams(window.location.search);
 	let personid = urlParams.get('personid');
 	let personInfo = jQuery.get(
-		`https://api.themoviedb.org/3/person/${personid}?api_key=${key}&append_to_response=credits`,
+		`https://api.themoviedb.org/3/person/${personid}?api_key=${key}&append_to_response=credits,images,videos`,
 		function() {
 			console.dir(personInfo);
 			personInfo = personInfo.responseJSON;
