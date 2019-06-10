@@ -178,10 +178,10 @@ select {
 #carouselCast .slick-track {
 	height: 300px !important;
 }
-.upCast .slick-prev {
+.slick-prev {
 	display: none !important;
 }
-.upCast .slick-next {
+.slick-next {
 	display: none !important;
 }
 .cast {

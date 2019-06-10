@@ -6,7 +6,6 @@ $('document').ready(function() {
 	let cast = $('.cast');
 	function setUpcoming() {
 		let results = jQuery.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${key}`, function() {
-			console.dir(results);
 			results = results.responseJSON.results;
 
 			for (let x = 0; x < upcoming.length; x++) {
@@ -35,6 +34,7 @@ $('document').ready(function() {
 								centerMode: true,
 								centerPadding: '60px',
 								slidesToShow: 5,
+								draggable: false,
 								autoplay: true,
 								pauseOnHover: false,
 								autoplaySpeed: 2000,
@@ -61,6 +61,7 @@ $('document').ready(function() {
 							});
 							$('.center').slick({
 								centerMode: true,
+								draggable: false,
 								centerPadding: '60px',
 								slidesToShow: 5,
 								autoplay: true,
